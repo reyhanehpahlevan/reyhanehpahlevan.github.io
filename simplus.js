@@ -18,7 +18,7 @@ new (function() {
     // stop waiting.
     ext.turnoff_led = function(callback) {
         $.ajax({
-              url: 'http://localhost:8080/turnoff_led,
+              url: 'http://localhost:8080/turnoff_led',
               dataType: 'jsonp',
               success: function( response ) {
                   // Got the data - parse it and return the temperature
