@@ -85,6 +85,8 @@ new (function() {
               url: 'http://localhost:8080/get_distance_victim?dist='+dist+'&op='+op,
               dataType: 'jsonp',
               success: function( response ) {
+		    if (response===1)
+			callback(true);	      
                    res=response;
                   callback(response);
               }
