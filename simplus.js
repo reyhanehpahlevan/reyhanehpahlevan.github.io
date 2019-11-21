@@ -40,7 +40,7 @@ new (function() {
     var descriptor = {
         blocks: [
             ['w', 'wait for random time', 'wait_random'],
-            ['R', 'Right Wheel %n Left Wheel %n', 'move', 0,0],
+            ['R', 'Right Wheel %n Left Wheel %n', 'move', '0','0'],
         ]
     };
 
