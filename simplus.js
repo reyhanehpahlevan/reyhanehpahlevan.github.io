@@ -24,10 +24,10 @@ new (function() {
         }, wait*1000);
     };
 
-    ext.move = function(type, callback) {
+    ext.move = function(rw,lf, callback) {
         // Make an AJAX call to the Open Weather Maps API
         $.ajax({
-              url: 'http://localhost:8080/move?type='+type,
+              url: 'http://localhost:8080/move?type='+rw,
               dataType: 'jsonp',
               success: function( response ) {
                   // Got the data - parse it and return the temperature
@@ -40,7 +40,7 @@ new (function() {
     var descriptor = {
         blocks: [
             ['w', 'wait for random time', 'wait_random'],
-            ['R', 'Move %s', 'move', 'Forward'],
+            ['R', 'Right Wheel %n Left Wheel %n', 'move', 0,0],
         ]
     };
 
