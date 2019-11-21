@@ -27,6 +27,18 @@ new (function() {
         });
     };
     
+    ext.get_proximity = function(number,callback) {
+         $.ajax({
+              url: 'http://localhost:8080/get_proximity?number='+number,
+              dataType: 'jsonp',
+              success: function( response ) {
+                  console.warn(response)
+                  callback(response);
+              }
+        });
+    };
+    
+    
     
     ext.move = function(rw,lw, callback) {
         // Make an AJAX call to the Open Weather Maps API
@@ -42,12 +54,14 @@ new (function() {
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            ['w', 'Change LED status to %m.led', 'set_led'],
+            ['R', 'Change LED status to %m.led', 'set_led','1'],
+            ['R', 'Get Proximity sensor value for %m.proximities', 'get_proximity'],
             ['R', 'Right Wheel %n Left Wheel %n', 'move', '0','0'],
 
         ],
         menus: {
         	led: ['off', 'blue', 'green','red'],
+        	proximities:['1','2','3','4','5','6','7','8'],
     },
     };
 
