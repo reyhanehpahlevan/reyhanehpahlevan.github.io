@@ -13,25 +13,21 @@ new (function() {
     // Functions for block with type 'w' will get a callback function as the 
     // final argument. This should be called to indicate that the block can
     // stop waiting.
-    ext.move = function(type, callback) {
-        // Make an AJAX call to the Open Weather Maps API
-        $.ajax({
-              url: 'http://localhost:8080/move?type='+type,
-              dataType: 'jsonp',
-              success: function( response ) {
-                  // Got the data - parse it and return the temperature
-                  temperature = response['move'];
-                  callback(temperature);
-              }
-        });
+    ext.wait_random = function(callback) {
+        wait = Math.random();
+        console.log('Waiting for ' + wait + ' seconds');
+        window.setTimeout(function() {
+            callback();
+        }, wait*1000);
+    };
 
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            ['R', 'Move %s', 'move', 'Forward'],
+            ['w', 'wait for random time', 'wait_random'],
         ]
     };
 
     // Register the extension
     ScratchExtensions.register('Random wait extension', descriptor, ext);
-})();
+})()
