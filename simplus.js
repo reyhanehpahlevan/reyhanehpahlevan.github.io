@@ -55,8 +55,8 @@ new (function() {
     var descriptor = {
         blocks: [
             ['w', 'Change LED status2 to %m.led', 'set_led','off'],
-            ['R', 'Get Proximity sensor value for %m.proximities', 'get_proximity','1'],
-            ['R', 'Right Wheel %n Left Wheel %n', 'move', '0','0'],
+            ['w', 'Get Proximity sensor value for %m.proximities', 'get_proximity','1'],
+            ['w', 'Right Wheel %n Left Wheel %n', 'move', '0','0'],
 
         ],
         menus: {
