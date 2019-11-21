@@ -1,5 +1,5 @@
 /* Extension demonstrating a blocking command block */
-/* Sayamindu Dasgupta <sayamindu@media.mit.edu>, May 2014 */
+/* Reyhaneh <reyhanehpahlevan@ce.sharif.edu>, Nov 2019 */
 
 new (function() {
     var ext = this;
