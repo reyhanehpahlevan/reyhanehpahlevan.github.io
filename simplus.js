@@ -16,7 +16,7 @@ new (function() {
     // Functions for block with type 'w' will get a callback function as the 
     // final argument. This should be called to indicate that the block can
     // stop waiting.
-    ext.turnoff_led = function(rw,lw, callback) {
+    ext.turnoff_led = function(callback) {
         $.ajax({
               url: 'http://localhost:8080/turnoff_led,
               dataType: 'jsonp',
