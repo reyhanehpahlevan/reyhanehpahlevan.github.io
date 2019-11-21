@@ -24,10 +24,23 @@ new (function() {
         }, wait*1000);
     };
 
+    ext.move = function(type, callback) {
+        // Make an AJAX call to the Open Weather Maps API
+        $.ajax({
+              url: 'http://localhost:8080/move?type='+type,
+              dataType: 'jsonp',
+              success: function( response ) {
+                  // Got the data - parse it and return the temperature
+                  temperature = response['move'];
+                  callback(temperature);
+              }
+        });
+        
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
             ['w', 'wait for random time', 'wait_random'],
+            ['R', 'Move %s', 'move', 'Forward'],
         ]
     };
 
