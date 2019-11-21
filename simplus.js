@@ -79,15 +79,26 @@ new (function() {
         });
     };
 
+	ext.get_distance_victim = function(op,dist,callback) {
+        $.ajax({
+              url: 'http://localhost:8080/get_distance_victim?dist='+dist+'&op='+op,
+              dataType: 'jsonp',
+              success: function( response ) {
+                  callback(response);
+              }
+        });
+    };
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            ['r', 'Get Proximity sensor value for %m.proximities', 'get_proximity','1'],
-            ['r', 'Get %m.colorsensors Color sensor value' , 'get_color','center'],
-            ['r', 'Get Position %m.positions' , 'get_position','x'],
-            ['r', 'Get Orientation %m.orientations' , 'get_orientation','Ro'],
+            ['w', 'Get Proximity sensor value for %m.proximities', 'get_proximity','1'],
+            ['w', 'Get %m.colorsensors Color sensor value' , 'get_color','center'],
+            ['w', 'Get Position %m.positions' , 'get_position','x'],
+            ['w', 'Get Orientation %m.orientations' , 'get_orientation','Ro'],
             ['w', 'Change LED status to %m.led', 'set_led','off'],
             ['w', 'Right Wheel %n Left Wheel %n', 'set_wheels', '0','0'],
+            ['h', 'when distance %m.lessMore %n to Victim','get_distance_victim', '<', '0.03'],
+
 
         ],
         menus: {
@@ -95,7 +106,8 @@ new (function() {
         	colorsensors: ['center', 'right', 'left'],
         	proximities:['1','2','3','4','5','6','7','8'],
         	positions:['x','y','z'],
-        	orientations:['Ro','Phi','Theta']
+        	orientations:['Ro','Phi','Theta'],
+        	lessMore: ['<', '>'],
     },
     };
 
