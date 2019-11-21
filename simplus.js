@@ -16,17 +16,7 @@ new (function() {
     // Functions for block with type 'w' will get a callback function as the 
     // final argument. This should be called to indicate that the block can
     // stop waiting.
-    ext.turnoff_led = function(callback) {
-        $.ajax({
-              url: 'http://localhost:8080/turnoff_led',
-              dataType: 'jsonp',
-              success: function( response ) {
-                  // Got the data - parse it and return the temperature
-                  temperature = response;
-                  callback(temperature);
-              }
-        });
-         };
+  
 
     ext.move = function(rw,lw, callback) {
         // Make an AJAX call to the Open Weather Maps API
@@ -43,7 +33,6 @@ new (function() {
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            ['R', 'Turn off LED', 'turnoff_led'],
             ['R', 'Right Wheel %n Left Wheel %n', 'move', '0','0'],
         ]
     };
