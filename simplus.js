@@ -16,22 +16,26 @@ new (function() {
     // Functions for block with type 'w' will get a callback function as the 
     // final argument. This should be called to indicate that the block can
     // stop waiting.
-    ext.wait_random = function(callback) {
-        wait = Math.random();
-        console.log('Waiting for ' + wait + ' seconds');
-        window.setTimeout(function() {
-            callback();
-        }, wait*1000);
-    };
-
-    ext.move = function(rw,lf, callback) {
-        // Make an AJAX call to the Open Weather Maps API
+    ext.turnoff_led = function(rw,lw, callback) {
         $.ajax({
-              url: 'http://localhost:8080/move?type='+rw,
+              url: 'http://localhost:8080/turnoff_led,
               dataType: 'jsonp',
               success: function( response ) {
                   // Got the data - parse it and return the temperature
-                  temperature = response['move'];
+                  temperature = response;
+                  callback(temperature);
+              }
+        });
+         };
+
+    ext.move = function(rw,lw, callback) {
+        // Make an AJAX call to the Open Weather Maps API
+        $.ajax({
+              url: 'http://localhost:8080/move?rw='+rw+'&lw='+lw,
+              dataType: 'jsonp',
+              success: function( response ) {
+                  // Got the data - parse it and return the temperature
+                  temperature = response;
                   callback(temperature);
               }
         });
@@ -39,7 +43,7 @@ new (function() {
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            ['w', 'wait for random time', 'wait_random'],
+            ['R', 'Turn off LED', 'turnoff_led'],
             ['R', 'Right Wheel %n Left Wheel %n', 'move', '0','0'],
         ]
     };
