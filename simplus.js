@@ -80,7 +80,7 @@ new (function() {
     };
 
 	ext.get_distance_victim = function(op,dist,callback) {
-	    res=false;
+	    var res=false;
         $.ajax({
               url: 'http://localhost:8080/get_distance_victim?dist='+dist+'&op='+op,
               dataType: 'jsonp',
@@ -98,7 +98,7 @@ new (function() {
             ['w', 'Get %m.colorsensors Color sensor value' , 'get_color','center'],
             ['w', 'Get Position %m.positions' , 'get_position','x'],
             ['w', 'Get Orientation %m.orientations' , 'get_orientation','Ro'],
-            ['h', 'when distance to Victim is %m.lessMore %n ','get_distance_victim', '<', '0.03'],
+            ['h', 'When distance to Victim is %m.lessMore %n ','get_distance_victim', '<', '0.03'],
             ['w', 'Change LED status to %m.led', 'set_led','off'],
             ['w', 'Right Wheel %n Left Wheel %n', 'set_wheels', '0','0'],
 
