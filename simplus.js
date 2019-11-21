@@ -47,7 +47,7 @@ new (function() {
 
         ],
         menus: {
-        	led: ['off', 'blue', 'green','red],
+        	led: ['off', 'blue', 'green','red'],
     },
     };
 
