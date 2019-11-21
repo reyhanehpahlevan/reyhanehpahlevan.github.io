@@ -42,7 +42,7 @@ new (function() {
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            ['R', 'Change LED status to %m.led', 'set_led'],
+            ['w', 'Change LED status to %m.led', 'set_led'],
             ['R', 'Right Wheel %n Left Wheel %n', 'move', '0','0'],
 
         ],
