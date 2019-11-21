@@ -82,10 +82,10 @@ new (function() {
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            ['w', 'Get Proximity sensor value for %m.proximities', 'get_proximity','1'],
-            ['w', 'Get %m.colorsensors Color sensor value' , 'get_color','center'],
-            ['w', 'Get Position %m.positions' , 'get_position','x'],
-            ['w', 'Get Orientation %m.orientations' , 'get_orientation','Ro'],
+            ['r', 'Get Proximity sensor value for %m.proximities', 'get_proximity','1'],
+            ['r', 'Get %m.colorsensors Color sensor value' , 'get_color','center'],
+            ['r', 'Get Position %m.positions' , 'get_position','x'],
+            ['r', 'Get Orientation %m.orientations' , 'get_orientation','Ro'],
             ['w', 'Change LED status to %m.led', 'set_led','off'],
             ['w', 'Right Wheel %n Left Wheel %n', 'set_wheels', '0','0'],
 
