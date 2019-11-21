@@ -16,15 +16,25 @@ new (function() {
     // Functions for block with type 'w' will get a callback function as the 
     // final argument. This should be called to indicate that the block can
     // stop waiting.
-    ext.turnoff_led = function(callback) {
+    ext.set_led = function(status,callback) {
          $.ajax({
-              url: 'http://localhost:8080/turnoff_led',
+              url: 'http://localhost:8080/set_led?status='+status,
               dataType: 'jsonp',
               success: function( response ) {
-                  // Got the data - parse it and return the temperature
-                  temperature = response;
-                  console.warn(temperature)
-                  callback(temperature);
+                  console.warn(response)
+                  callback(response);
+              }
+        });
+    };
+    
+    
+    ext.move = function(rw,lw, callback) {
+        // Make an AJAX call to the Open Weather Maps API
+        $.ajax({
+              url: 'http://localhost:8080/move?rw='+rw+'&lw='+lw,
+              dataType: 'jsonp',
+              success: function( response ) {
+                  callback(response);
               }
         });
     };
@@ -32,8 +42,13 @@ new (function() {
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            ['R', 'Turn off LED', 'turnoff_led'],
-        ]
+            ['R', 'Change LED status to %m.led', 'set_led'],
+            ['R', 'Right Wheel %n Left Wheel %n', 'move', '0','0'],
+
+        ],
+        menus: {
+        	led: ['off', 'blue', 'green','red],
+    },
     };
 
     // Register the extension
