@@ -21,7 +21,6 @@ new (function() {
               url: 'http://localhost:8080/set_led?status='+status,
               dataType: 'jsonp',
               success: function( response ) {
-                  console.warn(response)
                   callback(response);
               }
         });
@@ -32,18 +31,47 @@ new (function() {
               url: 'http://localhost:8080/get_proximity?number='+number,
               dataType: 'jsonp',
               success: function( response ) {
-                  console.warn(response)
+                  callback(response);
+              }
+        });
+    };
+    
+        
+    ext.get_color = function(sensor,callback) {
+         $.ajax({
+              url: 'http://localhost:8080/get_color?sensor='+sensor,
+              dataType: 'jsonp',
+              success: function( response ) {
+                  callback(response);
+              }
+        });
+    };
+    
+    ext.get_position = function(position,callback) {
+         $.ajax({
+              url: 'http://localhost:8080/get_position?position='+position,
+              dataType: 'jsonp',
+              success: function( response ) {
+                  callback(response);
+              }
+        });
+    };
+    
+    ext.get_orientation = function(orientation,callback) {
+         $.ajax({
+              url: 'http://localhost:8080/get_orientation?orientation='+orientation,
+              dataType: 'jsonp',
+              success: function( response ) {
                   callback(response);
               }
         });
     };
     
     
-    
-    ext.move = function(rw,lw, callback) {
+    ext.set_wheels = function(rw,lw, callback) {
         // Make an AJAX call to the Open Weather Maps API
         $.ajax({
-              url: 'http://localhost:8080/move?rw='+rw+'&lw='+lw,
+              url: 'http://localhost:8080/set_wheels?rw='+rw+'&lw='+lw,
               dataType: 'jsonp',
               success: function( response ) {
                   callback(response);
@@ -54,14 +82,20 @@ new (function() {
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            ['w', 'Change LED status to %m.led', 'set_led','off'],
             ['w', 'Get Proximity sensor value for %m.proximities', 'get_proximity','1'],
-            ['w', 'Right Wheel %n Left Wheel %n', 'move', '0','0'],
+            ['w', 'Get %m.colorsensors Color sensor value' , 'get_color','center'],
+            ['w', 'Get Position %m.positions' , 'get_position','x'],
+            ['w', 'Get Orientation %m.orientations' , 'get_orientation','Ro'],
+            ['w', 'Change LED status to %m.led', 'set_led','off'],
+            ['w', 'Right Wheel %n Left Wheel %n', 'set_wheels', '0','0'],
 
         ],
         menus: {
         	led: ['off', 'blue', 'green','red'],
+        	colorsensors: ['center', 'right', 'left'],
         	proximities:['1','2','3','4','5','6','7','8'],
+        	positions:['x','y','z'],
+        	orientations:['Ro','Phi','Theta']
     },
     };
 
