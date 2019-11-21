@@ -13,18 +13,22 @@ new (function() {
     // Functions for block with type 'w' will get a callback function as the 
     // final argument. This should be called to indicate that the block can
     // stop waiting.
-    ext.wait_random = function(callback) {
-        wait = Math.random();
-        console.log('Waiting for ' + wait + ' seconds');
-        window.setTimeout(function() {
-            callback();
-        }, wait*1000);
-    };
+    ext.move = function(type, callback) {
+        // Make an AJAX call to the Open Weather Maps API
+        $.ajax({
+              url: 'http://localhost:80/move?type='+type,
+              dataType: 'jsonp',
+              success: function( response ) {
+                  // Got the data - parse it and return the temperature
+                  temperature = response['move'];
+                  callback(temperature);
+              }
+        });
 
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            ['w', 'wait for random time', 'wait_random'],
+            ['R', 'Move %s', 'move', 'Forward'],
         ]
     };
 
