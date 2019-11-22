@@ -104,7 +104,7 @@ new (function() {
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            ['R', 'Get Proximity sensor value for %m.proximities', 'get_proximity','1'],
+            ['R', 'Get1 Proximity sensor value for %m.proximities', 'get_proximity','1'],
             ['R', 'Get %m.colorsensors Color sensor value' , 'get_color','center'],
             ['R', 'Get Position %m.positions' , 'get_position','x'],
             ['R', 'Get Orientation %m.orientations' , 'get_orientation','Ro'],
