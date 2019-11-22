@@ -107,7 +107,7 @@ new (function() {
             ['R', 'Get %m.colorsensors Color sensor value' , 'get_color','center'],
             ['R', 'Get Position %m.positions' , 'get_position','x'],
             ['R', 'Get Orientation %m.orientations' , 'get_orientation','Ro'],
-            ['R', 'Get distance to Victim ','get_distance_victim'],
+            ['R', 'Get Distance to Victim ','get_distance_victim'],
             ['w', 'Change LED status to %m.led', 'set_led','off'],
             ['w', 'Right Wheel %n Left Wheel %n', 'set_wheels', '0','0'],
 			['w', 'Action %m.actions', 'send_action', 'Find Victim'],
