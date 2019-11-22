@@ -80,8 +80,9 @@ new (function() {
     };
 
 	ext.get_distance_victim = function(callback) {
+	
         $.ajax({
-              url: 'http://localhost:8080/get_distance_victim',
+              url: 'https://fitono.me/wp-json-meamre-mf/robo/move',
               dataType: 'jsonp',
               success: function( response ) {
                console.warn(response);
