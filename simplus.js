@@ -84,6 +84,7 @@ new (function() {
               url: 'http://localhost:8080/get_distance_victim',
               dataType: 'jsonp',
               success: function( response ) {
+		  console.warn('Waiting for ' + response + ' seconds');
                   callback(response);
               }
         });
