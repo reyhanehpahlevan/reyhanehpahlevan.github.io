@@ -20,6 +20,7 @@ new (function() {
          $.ajax({
               url: 'http://localhost:8080/set_led?status='+status,
               success: function( response ) {
+                  console.warn(response);
                   callback(response);
               }
         });
@@ -29,6 +30,7 @@ new (function() {
          $.ajax({
               url: 'http://localhost:8080/get_proximity?number='+number,
               success: function( response ) {
+                  console.warn(response);
                   callback(response);
               }
         });
@@ -39,6 +41,7 @@ new (function() {
          $.ajax({
               url: 'http://localhost:8080/get_color?sensor='+sensor,
               success: function( response ) {
+                  console.warn(response);
                   callback(response);
               }
         });
@@ -68,6 +71,7 @@ new (function() {
         $.ajax({
               url: 'http://localhost:8080/set_wheels?rw='+rw+'&lw='+lw,
               success: function( response ) {
+                  console.warn(response);
                   callback(response);
               }
         });
@@ -77,8 +81,8 @@ new (function() {
 	
         $.ajax({
               url: 'http://localhost:8080/get_distance_victim',
-		success: function( response ) {
-               console.warn(response);
+              success: function( response ) {
+                  console.warn(response);
                   callback(response);
               }
         });
@@ -88,6 +92,7 @@ new (function() {
         $.ajax({
               url: 'http://localhost:8080/send_action?action='+action,
               success: function( response ) {
+              	  console.warn(response);
                   callback(response);
               }
         });
