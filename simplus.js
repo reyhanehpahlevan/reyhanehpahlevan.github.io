@@ -31,7 +31,7 @@ new (function() {
               url: 'http://localhost:8080/get_proximity?number='+number,
               success: function( response ) {
                   console.warn(response);
-                  callback(response);
+                  callback(parseInt(response));
               }
         });
     };
@@ -51,7 +51,7 @@ new (function() {
          $.ajax({
               url: 'http://localhost:8080/get_position?position='+position,
               success: function( response ) {
-                  callback(response);
+                  callback(parseInt(response));
               }
         });
     };
@@ -60,7 +60,7 @@ new (function() {
          $.ajax({
               url: 'http://localhost:8080/get_orientation?orientation='+orientation,
               success: function( response ) {
-                  callback(response);
+                  callback(parseInt(response));
               }
         });
     };
