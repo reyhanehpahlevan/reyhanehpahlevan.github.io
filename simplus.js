@@ -94,13 +94,9 @@ new (function() {
               url: 'http://localhost:8080/get_sim_status',
               success: function( response ) {
                   console.warn(response);
-                  if(response.localeCompare("True") == 0)
-                  	return true;
-		  else
-			return false;
+                  callback("1");
               }
         });
-	    
     };
     
     ext.send_action = function(action,callback) {
