@@ -83,7 +83,6 @@ new (function() {
 	
         $.ajax({
               url: 'https://fitono.me/wp-json-meamre-mf/robo/move',
-              dataType: 'jsonp',
               success: function( response ) {
                console.warn(response);
                   callback(response);
