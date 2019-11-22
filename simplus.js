@@ -89,17 +89,18 @@ new (function() {
     };
     
     ext.get_sim_status = function(callback) {
-	
+	var res=false;
         $.ajax({
               url: 'http://localhost:8080/get_sim_status',
               success: function( response ) {
                   console.warn(response);
                   if(response.localeCompare("True") == 0)
-                  	callback(true);
-                  else
-                  	callback(false);
+                  	res=true;
+		  else
+			  res=false;
               }
         });
+	    return res;
     };
     
     ext.send_action = function(action,callback) {
