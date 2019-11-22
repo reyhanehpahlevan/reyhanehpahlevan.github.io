@@ -84,7 +84,7 @@ new (function() {
               url: 'http://localhost:8080/get_distance_victim',
               dataType: 'jsonp',
               success: function( response ) {
-               console.warn(response['a'])
+               console.warn(response['a']);
                   callback(response['a']);
               }
         });
@@ -104,14 +104,14 @@ new (function() {
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            ['R', 'Get1 Proximity sensor value for %m.proximities', 'get_proximity','1'],
+            ['R', 'Get Proximity sensor value for %m.proximities', 'get_proximity','1'],
             ['R', 'Get %m.colorsensors Color sensor value' , 'get_color','center'],
             ['R', 'Get Position %m.positions' , 'get_position','x'],
             ['R', 'Get Orientation %m.orientations' , 'get_orientation','Ro'],
             ['R', 'Get distance to Victim ','get_distance_victim'],
             ['w', 'Change LED status to %m.led', 'set_led','off'],
             ['w', 'Right Wheel %n Left Wheel %n', 'set_wheels', '0','0'],
-			['w', 'Action %m.actions', 'send_action', 'Find Victim'],
+	    ['w', 'Action %m.actions', 'send_action', 'Find Victim'],
 
         ],
         menus: {
