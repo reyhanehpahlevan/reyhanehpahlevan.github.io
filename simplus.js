@@ -88,6 +88,18 @@ new (function() {
               }
         });
     };
+    
+    ext.send_action = function(action,callback) {
+        $.ajax({
+              url: 'http://localhost:8080/send_action?action='+action,
+              dataType: 'jsonp',
+              success: function( response ) {
+                  callback(response);
+              }
+        });
+    };
+    
+    
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
@@ -98,7 +110,7 @@ new (function() {
             ['R', 'Get distance to Victim ','get_distance_victim', '100'],
             ['w', 'Change LED status to %m.led', 'set_led','off'],
             ['w', 'Right Wheel %n Left Wheel %n', 'set_wheels', '0','0'],
-
+			['w', 'Action %m.actions', 'send_action', 'Find Victim'],
 
         ],
         menus: {
@@ -107,7 +119,7 @@ new (function() {
         	proximities:['1','2','3','4','5','6','7','8'],
         	positions:['x','y','z'],
         	orientations:['Ro','Phi','Theta'],
-        	lessMore: ['<', '>'],
+        	actions: ['Find Victim', 'Find Checkpoint','Rescue Victim'],
     },
     };
 
