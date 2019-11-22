@@ -19,7 +19,6 @@ new (function() {
     ext.set_led = function(status,callback) {
          $.ajax({
               url: 'http://localhost:8080/set_led?status='+status,
-              dataType: 'jsonp',
               success: function( response ) {
                   callback(response);
               }
@@ -29,7 +28,6 @@ new (function() {
     ext.get_proximity = function(number,callback) {
          $.ajax({
               url: 'http://localhost:8080/get_proximity?number='+number,
-              dataType: 'jsonp',
               success: function( response ) {
                   callback(response);
               }
@@ -40,7 +38,6 @@ new (function() {
     ext.get_color = function(sensor,callback) {
          $.ajax({
               url: 'http://localhost:8080/get_color?sensor='+sensor,
-              dataType: 'jsonp',
               success: function( response ) {
                   callback(response);
               }
@@ -50,7 +47,6 @@ new (function() {
     ext.get_position = function(position,callback) {
          $.ajax({
               url: 'http://localhost:8080/get_position?position='+position,
-              dataType: 'jsonp',
               success: function( response ) {
                   callback(response);
               }
@@ -60,7 +56,6 @@ new (function() {
     ext.get_orientation = function(orientation,callback) {
          $.ajax({
               url: 'http://localhost:8080/get_orientation?orientation='+orientation,
-              dataType: 'jsonp',
               success: function( response ) {
                   callback(response);
               }
@@ -72,7 +67,6 @@ new (function() {
         // Make an AJAX call to the Open Weather Maps API
         $.ajax({
               url: 'http://localhost:8080/set_wheels?rw='+rw+'&lw='+lw,
-              dataType: 'jsonp',
               success: function( response ) {
                   callback(response);
               }
@@ -82,8 +76,8 @@ new (function() {
 	ext.get_distance_victim = function(callback) {
 	
         $.ajax({
-              url: 'https://fitono.me/wp-json-meamre-mf/robo/move',
-              success: function( response ) {
+              url: 'http://localhost:8080/get_distance_victim',
+		success: function( response ) {
                console.warn(response);
                   callback(response);
               }
@@ -93,7 +87,6 @@ new (function() {
     ext.send_action = function(action,callback) {
         $.ajax({
               url: 'http://localhost:8080/send_action?action='+action,
-              dataType: 'jsonp',
               success: function( response ) {
                   callback(response);
               }
