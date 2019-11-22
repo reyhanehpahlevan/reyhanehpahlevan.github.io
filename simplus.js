@@ -94,10 +94,10 @@ new (function() {
               url: 'http://localhost:8080/get_sim_status',
               success: function( response ) {
                   console.warn(response);
-                  if(response.localeCompare("1") == 0)
-                  	callback(1);
+                  if(response.localeCompare("True") == 0)
+                  	callback(true);
                   else
-                  	callback(0);
+                  	callback(false);
               }
         });
     };
@@ -116,7 +116,7 @@ new (function() {
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            ['R', 'Get Simulation status', 'get_sim_status'],        
+            ['b', 'Get Simulation status', 'get_sim_status'],        
             ['R', 'Get Proximity sensor value for %m.proximities', 'get_proximity','1'],
             ['R', 'Get %m.colorsensors Color sensor value' , 'get_color','center'],
             ['R', 'Get Position %m.positions' , 'get_position','x'],
