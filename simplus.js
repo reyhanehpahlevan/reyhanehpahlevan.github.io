@@ -79,29 +79,23 @@ new (function() {
         });
     };
 
-	ext.get_distance_victim = function(op,dist,callback) {
-	    var res=false;
+	ext.get_distance_victim = function(dist,callback) {
         $.ajax({
-              url: 'http://localhost:8080/get_distance_victim?dist='+dist+'&op='+op,
+              url: 'http://localhost:8080/get_distance_victim?dist='+dist,
               dataType: 'jsonp',
-              success: function( response ) {	    
-                   res=response;
-              },
-		 async: false 
+              success: function( response ) {
+                  callback(response);
+              }
         });
-	if (res===1)
-          return true;
-	else
-	  return false;
     };
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            ['w', 'Get Proximity sensor value for %m.proximities', 'get_proximity','1'],
-            ['w', 'Get %m.colorsensors Color sensor value' , 'get_color','center'],
-            ['w', 'Get Position %m.positions' , 'get_position','x'],
-            ['w', 'Get Orientation %m.orientations' , 'get_orientation','Ro'],
-            ['h', 'When distance to Victim is %m.lessMore %n ','get_distance_victim', '<', '0.03'],
+            ['R', 'Get Proximity sensor value for %m.proximities', 'get_proximity','1'],
+            ['R', 'Get %m.colorsensors Color sensor value' , 'get_color','center'],
+            ['R', 'Get Position %m.positions' , 'get_position','x'],
+            ['R', 'Get Orientation %m.orientations' , 'get_orientation','Ro'],
+            ['R', 'Get distance to Victim ','get_distance_victim', '100'],
             ['w', 'Change LED status to %m.led', 'set_led','off'],
             ['w', 'Right Wheel %n Left Wheel %n', 'set_wheels', '0','0'],
 
