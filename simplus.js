@@ -88,6 +88,20 @@ new (function() {
         });
     };
     
+    ext.get_sim_status = function(callback) {
+	
+        $.ajax({
+              url: 'http://localhost:8080/get_sim_status',
+              success: function( response ) {
+                  console.warn(response);
+                  if(response.localeCompare("True") == 0)
+                  	callback(true);
+                  else
+                  	callback(false);
+              }
+        });
+    };
+    
     ext.send_action = function(action,callback) {
         $.ajax({
               url: 'http://localhost:8080/send_action?action='+action,
@@ -102,6 +116,7 @@ new (function() {
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
+            ['R', 'Get Simulation status', 'get_sim_status'],        
             ['R', 'Get Proximity sensor value for %m.proximities', 'get_proximity','1'],
             ['R', 'Get %m.colorsensors Color sensor value' , 'get_color','center'],
             ['R', 'Get Position %m.positions' , 'get_position','x'],
@@ -109,7 +124,7 @@ new (function() {
             ['R', 'Get distance to Victim ','get_distance_victim'],
             ['w', 'Change LED status to %m.led', 'set_led','off'],
             ['w', 'Right Wheel %n Left Wheel %n', 'set_wheels', '0','0'],
-	    ['w', 'Action %m.actions', 'send_action', 'Find Victim'],
+	    	['w', 'Action %m.actions', 'send_action', 'Find Victim'],
 
         ],
         menus: {
