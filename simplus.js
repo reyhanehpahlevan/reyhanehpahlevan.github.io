@@ -94,7 +94,7 @@ new (function() {
               url: 'http://localhost:8080/get_sim_status',
               success: function( response ) {
                   console.warn(response);
-                  callback("1");
+                  callback(response);
               }
         });
     };
